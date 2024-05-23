@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.fandev.workshopmongo.domain.User;
 import com.fandev.workshopmongo.domain.repositories.UserRepository;
+import com.fandev.workshopmongo.dto.UserDTO;
 import com.fandev.workshopmongo.services.exceptions.ResouceNotFoundException;
 
 @Service
@@ -25,5 +26,13 @@ public class UserService {
 		Optional<User> obj = repo.findById(id);
 		User user = obj.orElseThrow(() -> new ResouceNotFoundException(id));
 		return user;
+	}
+	
+	public User insert(User user) {
+		return repo.insert(user);
+	}
+	
+	public User fromDTO(UserDTO userDto) {
+		return new User(userDto.getId(), userDto.getName(), userDto.getEmail());
 	}
 }
