@@ -1,9 +1,9 @@
 package com.fandev.workshopmongo.services.exceptions;
 
-public class ResouceNotFoundException extends RuntimeException{
+public class ResourceNotFoundException extends RuntimeException{
 	private static final long serialVersionUID = 1L;
 
-	public ResouceNotFoundException(Object id) {
+	public ResourceNotFoundException(Object id) {
 		super("Resource not found. Id " + id);
 	}
 }
